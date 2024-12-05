@@ -21,3 +21,7 @@ export const boardGood = (obj) => {
 export const boardModify = (obj) => {
     return api.post('board/modify', JSON.stringify(obj));
 }
+
+export const boardRemove = (obj) => {
+    return api.post('board/remove', JSON.stringify(obj));
+}

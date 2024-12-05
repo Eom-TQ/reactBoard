@@ -60,7 +60,7 @@ export default function BoardWrite() {
                     <button type="button" class="btn-submit" onClick={
                         sendBoard
                     }>작성</button>
-                    <button type="button" class="btn-cancel">취소</button>
+                    <button type="button" class="btn-cancel" onClick={() => navigate(-1)}>취소</button>
                 </div>
             </div>
         </div>

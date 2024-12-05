@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { boardFind, boardGood } from "../api/board";
+import { boardFind, boardGood, boardRemove } from "../api/board";
 
 export default function BoardDetail() {
     const location = useLocation();
@@ -66,13 +66,34 @@ export default function BoardDetail() {
 }
 
 function MyBoard(props) {
+    const location = useLocation();
     const navigate = useNavigate();
+    const { state } = location;
+
+    function boardDelete() {
+        let obj = new Object();
+        obj.boardId = state.boardIdx;
+        boardRemove(obj);
+        alert('삭제 되었습니다.');
+        navigate('/BoardList');
+    }
+
+
     if (props.board.memberId === localStorage.getItem('userId')) {
         return (<div>
             <button class="btn-edit" onClick={() => {
-                navigate('/BoardEdit', { state: { board: props.board } });
+                navigate('/BoardEdit', { state: { board: props.board, boardIdx: state.boardIdx } });
             }}>수정</button>&nbsp;&nbsp;
-            <button class="btn-delete">삭제</button>
+            <button class="btn-delete" onClick={
+                () => {
+                    const deleteBoard = window.confirm('게시글을 삭제하시겠습니까?');
+                    if (deleteBoard) {
+                        boardDelete();
+                    } else {
+
+                    }
+                }
+            }>삭제</button>
 
         </div>
         )

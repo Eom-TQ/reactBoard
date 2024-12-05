@@ -49,7 +49,6 @@ function BoardHome() {
     <div style={{ border: '2px blue solid' }}>
       <Link to="/BoardList">게시글 목록</Link> &nbsp;&nbsp;
       <Link to="/boardWrite">게시글 작성</Link> &nbsp;&nbsp;
-      <Link to="/">게시글 목록</Link> &nbsp;&nbsp;
 
       어서오세요 {userId}님
     </div>
