@@ -6,6 +6,8 @@ import { BrowserRouter, Link, Route, Routes, useSearchParams } from 'react-route
 import BoardList from './comp/board/BoardList'
 import BoardWrite from './comp/board/BoardWrite';
 import { useEffect, useState } from 'react';
+import BoardDetail from './comp/board/BoardDetail';
+import BoardEdit from './comp/board/BoardEdit';
 
 function App() {
 
@@ -23,6 +25,8 @@ function App() {
         <Routes>
           <Route path={"/BoardList"} element={<BoardList />} />
           <Route path={"/BoardWrite"} element={<BoardWrite />} />
+          <Route path={"/BoardDetail"} element={<BoardDetail />} />
+          <Route path={"/BoardEdit"} element={<BoardEdit />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -45,7 +49,6 @@ function BoardHome() {
     <div style={{ border: '2px blue solid' }}>
       <Link to="/BoardList">게시글 목록</Link> &nbsp;&nbsp;
       <Link to="/boardWrite">게시글 작성</Link> &nbsp;&nbsp;
-      <Link to="/">게시글 목록</Link> &nbsp;&nbsp;
       <Link to="/">게시글 목록</Link> &nbsp;&nbsp;
 
       어서오세요 {userId}님

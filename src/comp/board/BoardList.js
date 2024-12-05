@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
 import { boardList } from "../api/board";
-import BoardArea from "./BoardArea";
+import BoardListArea from "./BoardListArea";
 
 export default function BoardList() {
 
     const [boards, setBoards] = useState([]);
 
     function startBoard() {
-        boardList();
-
         boardList().then(res => {
             console.log(res);
             if (res.data.code === '200') {
@@ -48,7 +46,7 @@ export default function BoardList() {
                 <tbody>
                     {
                         boards.map((item, index) => (
-                            <BoardArea item={item} index={index}></BoardArea>
+                            <BoardListArea item={item} index={index}></BoardListArea>
 
                         ))
                     }
