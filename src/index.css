@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  /* 항목 간 간격을 균등하게 배분 */
+  align-items: center;
+  /* 세로 방향으로 가운데 정렬 */
+}

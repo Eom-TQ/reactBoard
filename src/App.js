@@ -8,25 +8,33 @@ import BoardWrite from './comp/board/BoardWrite';
 import { useEffect, useState } from 'react';
 import BoardDetail from './comp/board/BoardDetail';
 import BoardEdit from './comp/board/BoardEdit';
+import Logout from './comp/user/Logout';
+import Login from './comp/user/Login';
 
 function App() {
 
   const [userId, setUserId] = useState();
 
   useEffect(() => {
-    localStorage.setItem('userId', 'hong');
+    loadUserId();
+  }, []);
+
+  function loadUserId() {
     setUserId(localStorage.getItem('userId'));
-  })
+  }
 
   return (
     <div className="App">
       <BrowserRouter>
-        <BoardHome />
+        <BoardHome userId={userId} />
         <Routes>
           <Route path={"/BoardList"} element={<BoardList />} />
           <Route path={"/BoardWrite"} element={<BoardWrite />} />
           <Route path={"/BoardDetail"} element={<BoardDetail />} />
           <Route path={"/BoardEdit"} element={<BoardEdit />} />
+          <Route path={"/Login"} element={<Login onPar={obj => loadUserId()} />} />
+          <Route path={"/Logout"} element={<Logout onPar={obj => setUserId('')} />} />
+
         </Routes>
       </BrowserRouter>
     </div>
@@ -34,25 +42,34 @@ function App() {
 }
 
 
-function BoardHome() {
-
-  const [userId, setUserId] = useState();
-
-  useEffect(() => {
-    localStorage.setItem('userId', 'hong');
-    setUserId(localStorage.getItem('userId'));
-  })
+function BoardHome(props) {
 
   return (
-
-
-    <div style={{ border: '2px blue solid' }}>
+    <div className='header'>
       <Link to="/BoardList">게시글 목록</Link> &nbsp;&nbsp;
       <Link to="/boardWrite">게시글 작성</Link> &nbsp;&nbsp;
 
-      어서오세요 {userId}님
+      <UserStatus userId={props.userId}></UserStatus>
     </div>
   )
+}
+
+function UserStatus(props) {
+
+  if (props.userId) {
+    return (
+      <div className='header'>
+        어서오세요 {props.userId}님 &nbsp;&nbsp;  <Link to="/logout">로그아웃</Link>
+      </div>
+    )
+  } else {
+    return (
+      <div className='header'>
+        <Link to="/Login">로그인</Link> &nbsp;
+
+      </div >
+    )
+  }
 }
 
 
