@@ -5,3 +5,13 @@ export const memberLogin = (obj) => {
 
     );
 }
+
+export const memberIdCheck = (obj) => {
+    return api.post('/member/findId', JSON.stringify(obj)
+
+    );
+}
+
+export const memberRegist = (obj) => {
+    return api.post('/member/regist', JSON.stringify(obj));
+}

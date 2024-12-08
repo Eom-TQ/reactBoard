@@ -42,7 +42,7 @@ export default function Login(props) {
                 <button type="button" class="btn-login" onClick={pressLoginBtn}>로그인</button>
             </form>
             <div class="signup-link">
-                <a href="#">회원가입</a>
+                <a onClick={() => { navigate('/Join') }}>회원가입</a>
             </div>
 
         </div >

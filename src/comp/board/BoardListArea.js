@@ -17,7 +17,7 @@ export default function BoardListArea(props) {
         <tr key={index} onClick={goDetail}>
             <td>{item.boardIdx}</td>
             <td>{item.title}</td>
-            <td>{item.memberId}</td>
+            <td>{item.createdBy}</td>
             <td>{date}</td>
             <td>{item.boardGood}</td>
         </tr>

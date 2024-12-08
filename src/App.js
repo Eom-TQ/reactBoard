@@ -10,6 +10,7 @@ import BoardDetail from './comp/board/BoardDetail';
 import BoardEdit from './comp/board/BoardEdit';
 import Logout from './comp/user/Logout';
 import Login from './comp/user/Login';
+import Join from './comp/user/Join';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path={"/BoardEdit"} element={<BoardEdit />} />
           <Route path={"/Login"} element={<Login onPar={obj => loadUserId()} />} />
           <Route path={"/Logout"} element={<Logout onPar={obj => setUserId('')} />} />
+          <Route path={"/Join"} element={<Join />} />
 
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { boardRegist } from "../api/board";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,19 @@ export default function BoardWrite() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    localStorage.getItem('userId');
+
+    useEffect(() => {
+        loginCheck();
+    }, [])
+
+    function loginCheck() {
+        const loginChk = localStorage.getItem('userId');
+        if (loginChk === '' || loginChk === null) {
+            alert('로그인이 필요한 화면입니다. ')
+            navigate('/Login');
+        }
+    }
+
 
     function sendBoard() {
         if (title === '' || content === '') {
