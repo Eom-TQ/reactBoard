@@ -3,14 +3,54 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f0f8ff;
+    /* 겨울 느낌의 밝은 파란색 */
     color: #333;
+    background-image: url('https://example.com/winter-background.jpg');
+    /* 겨울 느낌 배경 이미지 */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* 눈 내리는 애니메이션 */
+@keyframes snowfall {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    font-size: 2em;
+    color: #ffffff;
+    opacity: 0.8;
+    animation: snowfall linear infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+.snowflake:nth-child(odd) {
+    animation-duration: 12s;
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 14s;
 }
 
 .board-container {
     width: 80%;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* 반투명 흰색 */
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -22,14 +62,17 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #1e90ff;
+    /* 겨울에 어울리는 밝은 파란색 */
 }
-
 
 /* 게시판 리스트 스타일 */
 .board-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* 반투명 흰색 */
 }
 
 .board-table th,
@@ -41,16 +84,19 @@ body {
 }
 
 .board-table th {
-    background-color: #f0f0f0;
+    background-color: #f0f8ff;
+    /* 겨울 느낌의 하늘색 */
     font-weight: bold;
 }
 
 .board-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #e0f7fa;
+    /* 부드러운 파란색 */
 }
 
 .board-table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #b3e0e0;
+    /* 부드러운 겨울 분위기 */
 }
 
 .search-bar {
@@ -81,7 +127,8 @@ body {
     padding: 8px 16px;
     font-size: 14px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #1e90ff;
+    /* 겨울에 어울리는 파란색 */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -89,7 +136,7 @@ body {
 }
 
 .search-button:hover {
-    background-color: #0056b3;
+    background-color: #4682b4;
 }
 
 /* 게시글 작성 폼 스타일 */
@@ -125,7 +172,7 @@ label {
 
 .form-input:focus,
 .form-textarea:focus {
-    border-color: #007BFF;
+    border-color: #1e90ff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -150,12 +197,12 @@ label {
 }
 
 .btn-submit {
-    background-color: #007BFF;
+    background-color: #1e90ff;
     color: #fff;
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: #4682b4;
 }
 
 .btn-cancel {
@@ -182,7 +229,8 @@ label {
     font-size: 20px;
     font-weight: bold;
     margin: 0;
-    color: #007BFF;
+    color: #1e90ff;
+    /* 파란색 */
 }
 
 .post-meta {
@@ -258,7 +306,8 @@ label {
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* 반투명 흰색 */
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -269,7 +318,7 @@ label {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #007BFF;
+    color: #1e90ff;
 }
 
 .login-form {
@@ -294,7 +343,7 @@ label {
 }
 
 .form-input:focus {
-    border-color: #007BFF;
+    border-color: #1e90ff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -302,7 +351,7 @@ label {
     padding: 10px 20px;
     font-size: 14px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #1e90ff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -311,7 +360,7 @@ label {
 }
 
 .btn-login:hover {
-    background-color: #0056b3;
+    background-color: #4682b4;
 }
 
 .forgot-password {
@@ -321,7 +370,7 @@ label {
 }
 
 .forgot-password a {
-    color: #007BFF;
+    color: #1e90ff;
     text-decoration: none;
 }
 
@@ -336,7 +385,7 @@ label {
 }
 
 .signup-link a {
-    color: #007BFF;
+    color: #1e90ff;
     text-decoration: none;
 }
 
@@ -350,7 +399,7 @@ label {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -361,7 +410,7 @@ label {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #007BFF;
+    color: #1e90ff;
 }
 
 .signup-form {
@@ -378,7 +427,7 @@ label {
 .btn-check {
     padding: 10px 20px;
     font-size: 14px;
-    background-color: #007BFF;
+    background-color: #1e90ff;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -387,7 +436,7 @@ label {
 }
 
 .btn-check:hover {
-    background-color: #0056b3;
+    background-color: #4682b4;
 }
 
 .feedback {
@@ -397,7 +446,7 @@ label {
 }
 
 .btn-submit {
-    background-color: #007BFF;
+    background-color: #1e90ff;
     color: #fff;
     padding: 10px 20px;
     border: none;
